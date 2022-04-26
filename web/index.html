@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="icon" type="image/x-icon" href="./img/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+  <script type="text/javascript">
+    !function (T, l, y) { var S = T.location, k = "script", D = "instrumentationKey", C = "ingestionendpoint", I = "disableExceptionTracking", E = "ai.device.", b = "toLowerCase", w = "crossOrigin", N = "POST", e = "appInsightsSDK", t = y.name || "appInsights"; (y.name || T[e]) && (T[e] = t); var n = T[t] || function (d) { var g = !1, f = !1, m = { initialize: !0, queue: [], sv: "5", version: 2, config: d }; function v(e, t) { var n = {}, a = "Browser"; return n[E + "id"] = a[b](), n[E + "type"] = a, n["ai.operation.name"] = S && S.pathname || "_unknown_", n["ai.internal.sdkVersion"] = "javascript:snippet_" + (m.sv || m.version), { time: function () { var e = new Date; function t(e) { var t = "" + e; return 1 === t.length && (t = "0" + t), t } return e.getUTCFullYear() + "-" + t(1 + e.getUTCMonth()) + "-" + t(e.getUTCDate()) + "T" + t(e.getUTCHours()) + ":" + t(e.getUTCMinutes()) + ":" + t(e.getUTCSeconds()) + "." + ((e.getUTCMilliseconds() / 1e3).toFixed(3) + "").slice(2, 5) + "Z" }(), iKey: e, name: "Microsoft.ApplicationInsights." + e.replace(/-/g, "") + "." + t, sampleRate: 100, tags: n, data: { baseData: { ver: 2 } } } } var h = d.url || y.src; if (h) { function a(e) { var t, n, a, i, r, o, s, c, u, p, l; g = !0, m.queue = [], f || (f = !0, t = h, s = function () { var e = {}, t = d.connectionString; if (t) for (var n = t.split(";"), a = 0; a < n.length; a++) { var i = n[a].split("="); 2 === i.length && (e[i[0][b]()] = i[1]) } if (!e[C]) { var r = e.endpointsuffix, o = r ? e.location : null; e[C] = "https://" + (o ? o + "." : "") + "dc." + (r || "services.visualstudio.com") } return e }(), c = s[D] || d[D] || "", u = s[C], p = u ? u + "/v2/track" : d.endpointUrl, (l = []).push((n = "SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details)", a = t, i = p, (o = (r = v(c, "Exception")).data).baseType = "ExceptionData", o.baseData.exceptions = [{ typeName: "SDKLoadFailed", message: n.replace(/\./g, "-"), hasFullStack: !1, stack: n + "\nSnippet failed to load [" + a + "] -- Telemetry is disabled\nHelp Link: https://go.microsoft.com/fwlink/?linkid=2128109\nHost: " + (S && S.pathname || "_unknown_") + "\nEndpoint: " + i, parsedStack: [] }], r)), l.push(function (e, t, n, a) { var i = v(c, "Message"), r = i.data; r.baseType = "MessageData"; var o = r.baseData; return o.message = 'AI (Internal): 99 message:"' + ("SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details) (" + n + ")").replace(/\"/g, "") + '"', o.properties = { endpoint: a }, i }(0, 0, t, p)), function (e, t) { if (JSON) { var n = T.fetch; if (n && !y.useXhr) n(t, { method: N, body: JSON.stringify(e), mode: "cors" }); else if (XMLHttpRequest) { var a = new XMLHttpRequest; a.open(N, t), a.setRequestHeader("Content-type", "application/json"), a.send(JSON.stringify(e)) } } }(l, p)) } function i(e, t) { f || setTimeout(function () { !t && m.core || a() }, 500) } var e = function () { var n = l.createElement(k); n.src = h; var e = y[w]; return !e && "" !== e || "undefined" == n[w] || (n[w] = e), n.onload = i, n.onerror = a, n.onreadystatechange = function (e, t) { "loaded" !== n.readyState && "complete" !== n.readyState || i(0, t) }, n }(); y.ld < 0 ? l.getElementsByTagName("head")[0].appendChild(e) : setTimeout(function () { l.getElementsByTagName(k)[0].parentNode.appendChild(e) }, y.ld || 0) } try { m.cookie = l.cookie } catch (p) { } function t(e) { for (; e.length;)!function (t) { m[t] = function () { var e = arguments; g || m.queue.push(function () { m[t].apply(m, e) }) } }(e.pop()) } var n = "track", r = "TrackPage", o = "TrackEvent"; t([n + "Event", n + "PageView", n + "Exception", n + "Trace", n + "DependencyData", n + "Metric", n + "PageViewPerformance", "start" + r, "stop" + r, "start" + o, "stop" + o, "addTelemetryInitializer", "setAuthenticatedUserContext", "clearAuthenticatedUserContext", "flush"]), m.SeverityLevel = { Verbose: 0, Information: 1, Warning: 2, Error: 3, Critical: 4 }; var s = (d.extensionConfig || {}).ApplicationInsightsAnalytics || {}; if (!0 !== d[I] && !0 !== s[I]) { var c = "onerror"; t(["_" + c]); var u = T[c]; T[c] = function (e, t, n, a, i) { var r = u && u(e, t, n, a, i); return !0 !== r && m["_" + c]({ message: e, url: t, lineNumber: n, columnNumber: a, error: i }), r }, d.autoExceptionInstrumented = !0 } return m }(y.cfg); function a() { y.onInit && y.onInit(n) } (T[t] = n).queue && 0 === n.queue.length ? (n.queue.push(a), n.trackPageView({})) : a() }(window, document, {
+      src: "https://js.monitor.azure.com/scripts/b/ai.2.min.js", // The SDK URL Source
+       name: "dadosabertos", // Global SDK Instance name defaults to "appInsights" when not supplied
+      // ld: 0, // Defines the load delay (in ms) before attempting to load the sdk. -1 = block page load and add to head. (default) = 0ms load after timeout,
+      // useXhr: 1, // Use XHR instead of fetch to report failures (if available),
+      crossOrigin: "anonymous", // When supplied this will add the provided value as the cross origin attribute on the script tag
+      // onInit: null, // Once the application insights instance has loaded and initialized this callback function will be called with 1 argument -- the sdk instance (DO NOT ADD anything to the sdk.queue -- As they won't get called)
+      cfg: { // Application Insights Configuration
+        instrumentationKey: "4e0fa8a9-3335-4bf7-9f4c-bdae8a5be8d8"
+      }
+    });
+  </script>
+
+  <title>Dados Abertos</title>
+  <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+
+  <style type="text/css">
+    /* VIS config */
+
+    #mynetwork {
+      width: 90%;
+      height: 80vh;
+      border: 5px solid rgb(67, 129, 252);
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      left: 200vh;
+    }
+
+    /* Dropdown Button */
+    .form-select {
+      max-width: 300px;
+    }
+
+    .center {
+      text-align: center;
+      margin: auto;
+    }
+
+    .btn {
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      margin: auto;
+    }
+
+    body {
+      background-color: #d6d4d4;
+    }
+  </style>
+
+  <script type="text/javascript">
+    function updateGraph() {
+      var dep = document.querySelector('#depDropdown').value;
+      var year = document.querySelector('#yearDropdown').value;
+      window.location.href = "./index.html?" + dep + year;
+    }
+  </script>
+  <script>
+    $(document).ready(function () {
+      $('#yearDropdown').select2();
+      $('#depDropdown').select2();
+    });
+  </script>
+</head>
+
+<body>
+  <br>
+  <div class="center">
+    <h1>Gráfico de relacionamento entre deputados(as) e CNPJ</h1>
+    <select id="yearDropdown" class="form-select" aria-label="Default select example">
+      <option value="&ano=2021" selected="selected">Selecione o Ano</option>
+      <option value="&ano=2021">2021</option>
+      <option value="&ano=2020">2020</option>
+      <option value="&ano=2019">2019</option>
+      <!-- <option value="&ano=2018">2018</option> 
+    <option value="&ano=2017">2017</option>
+    <option value="&ano=2016">2016</option>
+    <option value="&ano=2015">2015</option>
+    <option value="&ano=2014">2014</option>
+    <option value="&ano=2013">2013</option>
+    <option value="&ano=2012">2012</option>
+    <option value="&ano=2011">2011</option>
+    <option value="&ano=2010">2010</option>
+    <option value="&ano=2009">2009</option>
+    <option value="&ano=2008">2008</option>-->
+    </select>
+
+    <select id="depDropdown" class="form-select" aria-label="Default select example">
+      <option value="&dep=36607606504" selected="selected">Selecione Deputado(a)</option>
+      <option value="&dep=36607606504">Abílio Santana</option>
+      <option value="&dep=8496582841">Abou Anni</option>
+      <option value="&dep=74287028287">Acácio Favacho</option>
+      <option value="&dep=80123848504">Adolfo Viana</option>
+      <option value="&dep=12519851813">Adriana Ventura</option>
+      <option value="&dep=50746553153">Adriano do Baldy</option>
+      <option value="&dep=66728983791">Aécio Neves</option>
+      <option value="&dep=36179140634">Aelton Freitas</option>
+      <option value="&dep=17734150500">Afonso Florence</option>
+      <option value="&dep=37040642034">Afonso Hamm</option>
+      <option value="&dep=10777296004">Afonso Motta</option>
+      <option value="&dep=51921146400">Aguinaldo Ribeiro</option>
+      <option value="&dep=18836178200">Airton Faleiro</option>
+      <option value="&dep=97506060353">AJ Albuquerque</option>
+      <option value="&dep=44726570234">Alan Rick</option>
+      <option value="&dep=17968496004">Alceu Moreira</option>
+      <option value="&dep=13620983100">Alcides Rodrigues</option>
+      <option value="&dep=79875564915">Alê Silva</option>
+      <option value="&dep=5544839808">Alencar Santana</option>
+      <option value="&dep=1416576770">Alessandro Molon</option>
+      <option value="&dep=26838194805">Alex Manente</option>
+      <option value="&dep=64682420534">Alex Santana</option>
+      <option value="&dep=75199270753">Alexandre Frota</option>
+      <option value="&dep=22970812860">Alexandre Leite</option>
+      <option value="&dep=13192679808">Alexandre Padilha</option>
+      <option value="&dep=2440200786">Alexandre Serfiotis</option>
+      <option value="&dep=6630660854">Alexis Fonteyne</option>
+      <option value="&dep=12377392504">Alice Portugal</option>
+      <option value="&dep=6908052923">Aliel Machado</option>
+      <option value="&dep=51150670215">Aline Gurgel</option>
+      <option value="&dep=506342913">Aline Sleutjes</option>
+      <option value="&dep=7487738">Altineu Côrtes</option>
+      <option value="&dep=66746485749">Aluisio Mendes</option>
+      <option value="&dep=6893749767">Amaro Neto</option>
+      <option value="&dep=31601928220">André Abdon</option>
+      <option value="&dep=34148485468">André de Paula</option>
+      <option value="&dep=77050363472">André Ferreira</option>
+      <option value="&dep=25905503320">André Figueiredo</option>
+      <option value="&dep=3950788301">André Fufuca</option>
+      <option value="&dep=6630008669">André Janones</option>
+      <option value="&dep=29316715920">Angela Amin</option>
+      <option value="&dep=4240952387">Aníbal Gomes</option>
+      <option value="&dep=51488868549">Antonio Brito</option>
+      <option value="&dep=6821146187">Arlindo Chinaglia</option>
+      <option value="&dep=4197807856">Arnaldo Jardim</option>
+      <option value="&dep=21074844300">Aroldo Martins</option>
+      <option value="&dep=67821090425">Arthur Lira</option>
+      <option value="&dep=32604637553">Arthur Oliveira Maia</option>
+      <option value="&dep=694584215">Átila Lins</option>
+      <option value="&dep=13023594600">Átila Lira</option>
+      <option value="&dep=33155623420">Augusto Coutinho</option>
+      <option value="&dep=1412895626">Áurea Carolina</option>
+      <option value="&dep=5355525725">Aureo Ribeiro</option>
+      <option value="&dep=10626409500">Bacelar</option>
+      <option value="&dep=17816724829">Baleia Rossi</option>
+      <option value="&dep=36293334787">Benedita da Silva</option>
+      <option value="&dep=40665429487">Benes Leocádio</option>
+      <option value="&dep=40070565287">Beto Faro</option>
+      <option value="&dep=69380007191">Beto Pereira</option>
+      <option value="&dep=1195625456">Beto Rosado</option>
+      <option value="&dep=49200844120">Bia Cavassa</option>
+      <option value="&dep=38567792134">Bia Kicis</option>
+      <option value="&dep=27236056049">Bibo Nunes</option>
+      <option value="&dep=45561699687">Bilac Pinto</option>
+      <option value="&dep=40903974304">Bira do Pindaré</option>
+      <option value="&dep=84116730904">Boca Aberta</option>
+      <option value="&dep=12558206249">Bohn Gass</option>
+      <option value="&dep=2235080553">Bosco Costa</option>
+      <option value="&dep=13717820249">Bosco Saraiva</option>
+      <option value="&dep=21883547881">Bozzella</option>
+      <option value="&dep=31516410831">Bruna Furlan</option>
+      <option value="&dep=79753566549">Cacá Leão</option>
+      <option value="&dep=38873940200">Camilo Capiberibe</option>
+      <option value="&dep=66397545334">Capitão Alberto Neto</option>
+      <option value="&dep=5750251829">Capitão Augusto</option>
+      <option value="&dep=31200606825">Capitão Derrite</option>
+      <option value="&dep=48140597368">Capitão Fábio Abreu</option>
+      <option value="&dep=61496880382">Capitão Wagner</option>
+      <option value="&dep=2336272431">Carla Dickson</option>
+      <option value="&dep=1335594671">Carla Zambelli</option>
+      <option value="&dep=834939134">Carlos Bezerra</option>
+      <option value="&dep=503190942">Carlos Chiodini</option>
+      <option value="&dep=2142743730">Carlos Gomes</option>
+      <option value="&dep=21944202153">Carlos Henrique Gaguim</option>
+      <option value="&dep=9650185712">Carlos Jordy</option>
+      <option value="&dep=6197277808">Carlos Sampaio</option>
+      <option value="&dep=3987461411">Carlos Veras</option>
+      <option value="&dep=398099863">Carlos Zarattini</option>
+      <option value="&dep=51434245934">Carmen Zanotto</option>
+      <option value="&dep=5858392989">Caroline de Toni</option>
+      <option value="&dep=68490151253">Cássio Andrade</option>
+      <option value="&dep=79981488100">Celina Leão</option>
+      <option value="&dep=12364983134">Célio Moura</option>
+      <option value="&dep=24453706120">Célio Silveira</option>
+      <option value="&dep=1420754343">Célio Studart</option>
+      <option value="&dep=18270522953">Celso Maldaner</option>
+      <option value="&dep=1252958803">Celso Russomanno</option>
+      <option value="&dep=48992127200">Celso Sabino</option>
+      <option value="&dep=65188845504">Cezinha de Madureira</option>
+      <option value="&dep=33938903520">Charles Fernandes</option>
+      <option value="&dep=6872337630">Charlles Evangelista</option>
+      <option value="&dep=47247436700">Chico D'Angelo</option>
+      <option value="&dep=75010020700">Chiquinho Brazão</option>
+      <option value="&dep=10448771705">Chris Tonietto</option>
+      <option value="&dep=49156470991">Christiane de Souza Yared</option>
+      <option value="&dep=70542783720">Christino Aureo</option>
+      <option value="&dep=9598289745">Clarissa Garotinho</option>
+      <option value="&dep=29474485534">Claudio Cajado</option>
+      <option value="&dep=48357600344">Cleber Verde</option>
+      <option value="&dep=49906780797">Coronel Armando</option>
+      <option value="&dep=70335591787">Coronel Chrisóstomo</option>
+      <option value="&dep=4862780857">Coronel Tadeu</option>
+      <option value="&dep=1171688075">Covatti Filho</option>
+      <option value="&dep=33096473234">Cristiano Vale</option>
+      <option value="&dep=98042734700">Da Vitoria</option>
+      <option value="&dep=263382893">Dagoberto Nogueira</option>
+      <option value="&dep=13932772415">Damião Feliciano</option>
+      <option value="&dep=7894090549">Daniel Almeida</option>
+      <option value="&dep=2513878442">Daniel Coelho</option>
+      <option value="&dep=3751859926">Daniel Freitas</option>
+      <option value="&dep=5700923700">Daniel Silveira</option>
+      <option value="&dep=1297812077">Daniel Trzeciak</option>
+      <option value="&dep=7973687793">Daniela do Waguinho</option>
+      <option value="&dep=50903691434">Danilo Cabral</option>
+      <option value="&dep=12133728368">Danilo Forte</option>
+      <option value="&dep=70157324087">Danrlei de Deus Hinterholz</option>
+      <option value="&dep=44828624953">Darci de Matos</option>
+      <option value="&dep=12394073780">David Miranda</option>
+      <option value="&dep=2112481770">David Soares</option>
+      <option value="&dep=2473048754">Delegado Antônio Furtado</option>
+      <option value="&dep=13405551234">Delegado Éder Mauro</option>
+      <option value="&dep=3572972612">Delegado Marcelo Freitas</option>
+      <option value="&dep=55926169291">Delegado Pablo</option>
+      <option value="&dep=46228357972">Delegado Waldir</option>
+      <option value="&dep=62156047391">Denis Bezerra</option>
+      <option value="&dep=99316552672">Diego Andrade</option>
+      <option value="&dep=4702291955">Diego Garcia</option>
+      <option value="&dep=3694339639">Dimas Fabiano</option>
+      <option value="&dep=2827898390">Domingos Neto</option>
+      <option value="&dep=22275150668">Domingos Sávio</option>
+      <option value="&dep=9111638320">Dr. Agripino Magalhães</option>
+      <option value="&dep=7422257717">Dr. Frederico</option>
+      <option value="&dep=5461154387">Dr. Gonçalo</option>
+      <option value="&dep=35761113368">Dr. Jaziel</option>
+      <option value="&dep=2309274917">Dr. Leonardo</option>
+      <option value="&dep=2319953779">Dr. Luiz Antonio Teixeira Jr.</option>
+      <option value="&dep=5134552134">Dr. Luiz Ovando</option>
+      <option value="&dep=11833050100">Dr. Zacharias Calil</option>
+      <option value="&dep=82837147753">Dra. Soraya Manato</option>
+      <option value="&dep=78581850804">Dra. Vanda Milani</option>
+      <option value="&dep=30217865100">Dulce Miranda</option>
+      <option value="&dep=83762116334">Edilázio Júnior</option>
+      <option value="&dep=77548981872">Edio Lopes</option>
+      <option value="&dep=9006826200">Edmilson Rodrigues</option>
+      <option value="&dep=80482856491">Edna Henrique</option>
+      <option value="&dep=27582400682">Eduardo Barbosa</option>
+      <option value="&dep=61882577353">Eduardo Bismarck</option>
+      <option value="&dep=10655365770">Eduardo Bolsonaro</option>
+      <option value="&dep=55068480304">Eduardo Braide</option>
+      <option value="&dep=26757184249">Eduardo Costa</option>
+      <option value="&dep=4909670866">Eduardo Cury</option>
+      <option value="&dep=53467108415">Eduardo da Fonte</option>
+      <option value="&dep=770338410">Efraim Filho</option>
+      <option value="&dep=605387249">Elcione Barbalho</option>
+      <option value="&dep=21821003187">Eli Borges</option>
+      <option value="&dep=17610241830">Eli Corrêa Filho</option>
+      <option value="&dep=42289440191">Elias Vaz</option>
+      <option value="&dep=49465589500">Elmar Nascimento</option>
+      <option value="&dep=16810770860">Ely Santos</option>
+      <option value="&dep=558574181">Emanuel Pinheiro Neto</option>
+      <option value="&dep=60433086653">Emidinho Madeira</option>
+      <option value="&dep=39737705904">Enio Verri</option>
+      <option value="&dep=43274524832">Enrico Misasi</option>
+      <option value="&dep=22441107100">Erika Kokay</option>
+      <option value="&dep=84470666653">Eros Biondini</option>
+      <option value="&dep=6460032670">Euclydes Pettersen</option>
+      <option value="&dep=2261265794">Evair Vieira de Melo</option>
+      <option value="&dep=93279493234">Expedito Netto</option>
+      <option value="&dep=2128728428">Fábio Faria</option>
+      <option value="&dep=41330200578">Fábio Henrique</option>
+      <option value="&dep=65242777591">Fábio Mitidieri</option>
+      <option value="&dep=54471788604">Fábio Ramalho</option>
+      <option value="&dep=57126500378">Fabio Reis</option>
+      <option value="&dep=4116230952">Fabio Schiochet</option>
+      <option value="&dep=98303651749">Fábio Trad</option>
+      <option value="&dep=28022995819">Fausto Pinato</option>
+      <option value="&dep=90982843704">Felício Laterça</option>
+      <option value="&dep=86488023420">Felipe Carreras</option>
+      <option value="&dep=8317508986">Felipe Francischini</option>
+      <option value="&dep=12838182722">Felipe Rigoni</option>
+      <option value="&dep=24263630530">Félix Mendonça Júnior</option>
+      <option value="&dep=213461005">Fernanda Melchionna</option>
+      <option value="&dep=4921093466">Fernando Coelho Filho</option>
+      <option value="&dep=83146270463">Fernando Monteiro</option>
+      <option value="&dep=4445225495">Fernando Rodolfo</option>
+      <option value="&dep=5825760911">Filipe Barros</option>
+      <option value="&dep=85773875187">Flávia Arruda</option>
+      <option value="&dep=54779537134">Flávia Morais</option>
+      <option value="&dep=33251797700">Flaviano Melo</option>
+      <option value="&dep=4826604300">Flávio Nogueira</option>
+      <option value="&dep=1387115774">Flordelis</option>
+      <option value="&dep=47594217187">Francisco Jr.</option>
+      <option value="&dep=1583845631">Franco Cartafina</option>
+      <option value="&dep=2505101620">Fred Costa</option>
+      <option value="&dep=13163663400">Frei Anastacio Ribeiro</option>
+      <option value="&dep=1196553300">Gastão Vieira</option>
+      <option value="&dep=84610310759">Gelson Azevedo</option>
+      <option value="&dep=25630512315">Genecias Noronha</option>
+      <option value="&dep=45312346772">General Girão</option>
+      <option value="&dep=91311233849">General Peternelli</option>
+      <option value="&dep=12172894885">Geninho Zuliani</option>
+      <option value="&dep=81095910949">Geovania de Sá</option>
+      <option value="&dep=12896918191">Geraldo Resende</option>
+      <option value="&dep=88623327420">Gervásio Maia</option>
+      <option value="&dep=71827404949">Giacobo</option>
+      <option value="&dep=80405878320">Gil Cutrim</option>
+      <option value="&dep=8567392861">Gilberto Abramo</option>
+      <option value="&dep=64817407891">Gilberto Nascimento</option>
+      <option value="&dep=824207939">Gilson Marques</option>
+      <option value="&dep=31050778049">Giovani Cherini</option>
+      <option value="&dep=26586568072">Giovani Feltes</option>
+      <option value="&dep=9740756719">Glauber Braga</option>
+      <option value="&dep=60751266191">Glaustin da Fokus</option>
+      <option value="&dep=67677061915">Gleisi Hoffmann</option>
+      <option value="&dep=1960970453">Gonzaga Patriota</option>
+      <option value="&dep=8187452315">GORETE PEREIRA</option>
+      <option value="&dep=5132597670">Greyce Elias</option>
+      <option value="&dep=4434956884">Guiga Peixoto</option>
+      <option value="&dep=31812472862">Guilherme Mussi</option>
+      <option value="&dep=8632534742">Gurgel</option>
+      <option value="&dep=64446379968">Gustavo Fruet</option>
+      <option value="&dep=82706522534">Gustinho Ribeiro</option>
+      <option value="&dep=7733341736">Gutemberg Reis</option>
+      <option value="&dep=11914408691">Haroldo Cathedral</option>
+      <option value="&dep=93008856187">Heitor Freire</option>
+      <option value="&dep=45479453068">Heitor Schuch</option>
+      <option value="&dep=76808742715">Helder Salomão</option>
+      <option value="&dep=24633631934">Hélio Costa</option>
+      <option value="&dep=8575878204">Hélio Leite</option>
+      <option value="&dep=891743723">Helio Lopes</option>
+      <option value="&dep=34709948895">Henrique do Paraíso</option>
+      <option value="&dep=33410518053">Henrique Fontana</option>
+      <option value="&dep=551632895">Herculano Passos</option>
+      <option value="&dep=33496315920">Hermes Parcianello</option>
+      <option value="&dep=17571243300">Hildo Rocha</option>
+      <option value="&dep=14997169234">Hiran Gonçalves</option>
+      <option value="&dep=41365585620">Hugo Leal</option>
+      <option value="&dep=4796249419">Hugo Motta</option>
+      <option value="&dep=38167565300">Idilvan Alencar</option>
+      <option value="&dep=1321270593">Igor Kannário</option>
+      <option value="&dep=1374904619">Igor Timo</option>
+      <option value="&dep=37311638372">Iracema Portella</option>
+      <option value="&dep=67766692449">Isnaldo Bulhões Jr.</option>
+      <option value="&dep=37655582815">Ivan Valente</option>
+      <option value="&dep=43428169700">Jandira Feghali</option>
+      <option value="&dep=35124032200">Jaqueline Cassol</option>
+      <option value="&dep=2684165831">Jefferson Campos</option>
+      <option value="&dep=73441040082">Jerônimo Goergen</option>
+      <option value="&dep=65595564253">Jéssica Sales</option>
+      <option value="&dep=58065083234">Jesus Sérgio</option>
+      <option value="&dep=1117690199">Jhc</option>
+      <option value="&dep=74274112268">Jhonatan de Jesus</option>
+      <option value="&dep=24254401191">João Campos</option>
+      <option value="&dep=15345931879">João Carlos Bacelar</option>
+      <option value="&dep=51625091591">João Daniel</option>
+      <option value="&dep=6662978191">João Maia</option>
+      <option value="&dep=61956384120">João Marcelo Souza</option>
+      <option value="&dep=81968442472">João Roma</option>
+      <option value="&dep=13606328249">Joaquim Passarinho</option>
+      <option value="&dep=32326998200">Joenia Wapichana</option>
+      <option value="&dep=85655732149">Joice Hasselmann</option>
+      <option value="&dep=3366890711">Jones Moura</option>
+      <option value="&dep=35201487734">Jorge Braz</option>
+      <option value="&dep=43927998915">Jorge Goetten</option>
+      <option value="&dep=19530773587">Jorge Solla</option>
+      <option value="&dep=65336704253">Jorielson</option>
+      <option value="&dep=9257357368">José Airton Félix Cirilo</option>
+      <option value="&dep=9324577387">José Guimarães</option>
+      <option value="&dep=41877004987">Jose Mario Schreiner</option>
+      <option value="&dep=42442540134">José Medeiros</option>
+      <option value="&dep=22002570159">José Nelto</option>
+      <option value="&dep=4653580553">José Nunes</option>
+      <option value="&dep=17293618204">José Priante</option>
+      <option value="&dep=18660037200">José Ricardo</option>
+      <option value="&dep=4789113515">José Rocha</option>
+      <option value="&dep=15963330572">Joseildo Ramos</option>
+      <option value="&dep=10452001404">Josias Gomes</option>
+      <option value="&dep=50980351200">Josimar Maranhãozinho</option>
+      <option value="&dep=63253313387">Josivaldo JP</option>
+      <option value="&dep=47843080910">Juarez Costa</option>
+      <option value="&dep=61927686172">Julian Lemos</option>
+      <option value="&dep=1102125334">Júlio Cesar</option>
+      <option value="&dep=15791563809">Julio Cesar Ribeiro</option>
+      <option value="&dep=81993358668">Júlio Delgado</option>
+      <option value="&dep=59245220753">Julio Lopes</option>
+      <option value="&dep=7845799700">Juninho do Pneu</option>
+      <option value="&dep=7554049631">Junio Amaral</option>
+      <option value="&dep=23211253220">Júnior Ferrari</option>
+      <option value="&dep=78247128349">Junior Lourenço</option>
+      <option value="&dep=97891231320">Júnior Mano</option>
+      <option value="&dep=85290211349">Juscelino Filho</option>
+      <option value="&dep=39313495864">Kim Kataguiri</option>
+      <option value="&dep=16853881400">Laercio Oliveira</option>
+      <option value="&dep=9511172115">Laerte Bessa</option>
+      <option value="&dep=38105195100">Lafayette de Andrada</option>
+      <option value="&dep=79401546720">Laura Carneiro</option>
+      <option value="&dep=974976733">Lauriete</option>
+      <option value="&dep=80635083949">Leandre</option>
+      <option value="&dep=43025900253">Leda Sadala</option>
+      <option value="&dep=63182246291">Leo de Brito</option>
+      <option value="&dep=4333073901">Léo Moraes</option>
+      <option value="&dep=85702609620">Léo Motta</option>
+      <option value="&dep=76553787115">Leonardo Gadelha</option>
+      <option value="&dep=20811845672">Leonardo Monteiro</option>
+      <option value="&dep=8436066731">Leonardo Picciani</option>
+      <option value="&dep=12105961304">Leônidas Cristino</option>
+      <option value="&dep=87594749120">Leur Lomanto Júnior</option>
+      <option value="&dep=14672049515">Lídice da Mata</option>
+      <option value="&dep=10254730191">Lincoln Portela</option>
+      <option value="&dep=1738506002">Liziane Bayer</option>
+      <option value="&dep=95486100191">Loester Trutis</option>
+      <option value="&dep=42310580759">Lourival Gomes</option>
+      <option value="&dep=9557484616">Lucas Gonzalez</option>
+      <option value="&dep=71471278115">Lucas Redecker</option>
+      <option value="&dep=1745455175">Lucas Vergilio</option>
+      <option value="&dep=1818961415">Luciano Bivar</option>
+      <option value="&dep=20732376068">Luciano Ducci</option>
+      <option value="&dep=28649923291">Lucio Mosquini</option>
+      <option value="&dep=90218647115">Luis Miranda</option>
+      <option value="&dep=81460910672">Luis Tibé</option>
+      <option value="&dep=5823529910">Luisa Canziani</option>
+      <option value="&dep=1563114704">Luiz Antônio Corrêa</option>
+      <option value="&dep=63223228268">Luiz Carlos</option>
+      <option value="&dep=3035521824">Luiz Carlos Motta</option>
+      <option value="&dep=7616393730">Luiz Lima</option>
+      <option value="&dep=8781460910">Luiz Nishimori</option>
+      <option value="&dep=11844856828">Luiz Philippe de Orleans e Bragança</option>
+      <option value="&dep=480584400">Luiza Erundina</option>
+      <option value="&dep=53601106949">Luizão Goulart</option>
+      <option value="&dep=38208563315">Luizianne Lins</option>
+      <option value="&dep=13205285115">Magda Mofatto</option>
+      <option value="&dep=7862227786">Major Fabiana</option>
+      <option value="&dep=36089427268">Manuel Marcos</option>
+      <option value="&dep=41186273291">Mara Rocha</option>
+      <option value="&dep=731302060">Marcel van Hattem</option>
+      <option value="&dep=649039661">Marcelo Álvaro Antônio</option>
+      <option value="&dep=6305588686">Marcelo Aro</option>
+      <option value="&dep=73324507049">Marcelo Brum</option>
+      <option value="&dep=8868429721">Marcelo Calero</option>
+      <option value="&dep=95622780772">Marcelo Freixo</option>
+      <option value="&dep=96520418072">Marcelo Moraes</option>
+      <option value="&dep=11875194568">Marcelo Nilo</option>
+      <option value="&dep=43634745215">Marcelo Ramos</option>
+      <option value="&dep=8363754838">Marcelo Squassoni</option>
+      <option value="&dep=10115711880">Marcio Alvino</option>
+      <option value="&dep=80686958004">Márcio Biolchi</option>
+      <option value="&dep=29246830334">Márcio Jerry</option>
+      <option value="&dep=3394588790">Márcio Labre</option>
+      <option value="&dep=1895263786">Márcio Marinho</option>
+      <option value="&dep=9420275825">Marco Bertaiolli</option>
+      <option value="&dep=43434339000">Marcon</option>
+      <option value="&dep=1742564348">Marcos Aurélio Sampaio</option>
+      <option value="&dep=963578782">Marcos Pereira</option>
+      <option value="&dep=5217856777">Marcos Soares</option>
+      <option value="&dep=18341160315">Margarete Coelho</option>
+      <option value="&dep=13521039668">Margarida Salomão</option>
+      <option value="&dep=48989371015">Maria do Rosário</option>
+      <option value="&dep=61433934787">Maria Rosas</option>
+      <option value="&dep=83577572272">Mariana Carvalho</option>
+      <option value="&dep=5161704497">Marília Arraes</option>
+      <option value="&dep=3258745498">Marina Santos</option>
+      <option value="&dep=28539249634">Mário Heringer</option>
+      <option value="&dep=31226540">Mário Negromonte Jr.</option>
+      <option value="&dep=89718925015">Marlon Santos</option>
+      <option value="&dep=4168850390">Marreca Filho</option>
+      <option value="&dep=2696564485">Marx Beltrão</option>
+      <option value="&dep=95887105020">Maurício Dziedricki</option>
+      <option value="&dep=15336735191">Mauro Benevides Filho</option>
+      <option value="&dep=10901906620">Mauro Lopes</option>
+      <option value="&dep=70162000782">Mauro Nazif</option>
+      <option value="&dep=13891820372">Merlong Solano</option>
+      <option value="&dep=96476850849">Miguel Haddad</option>
+      <option value="&dep=5209979806">Miguel Lombardi</option>
+      <option value="&dep=42003270400">Milton Coelho</option>
+      <option value="&dep=4976912809">Milton Vieira</option>
+      <option value="&dep=28492803649">Misael Varella</option>
+      <option value="&dep=47721740363">Moses Rodrigues</option>
+      <option value="&dep=5352897400">Natália Bonavides</option>
+      <option value="&dep=1862797870">Nelson Barbudo</option>
+      <option value="&dep=36247740000">Nereu Crispim</option>
+      <option value="&dep=41190335115">Neri Geller</option>
+      <option value="&dep=81824726791">Neucimar Fraga</option>
+      <option value="&dep=1266637699">Newton Cardoso Jr</option>
+      <option value="&dep=99445700015">Nicoletti</option>
+      <option value="&dep=2875900200">Nilson Pinto</option>
+      <option value="&dep=3380916889">Nilto Tatto</option>
+      <option value="&dep=6923503493">Nivaldo Albuquerque</option>
+      <option value="&dep=28008901187">Norma Ayub</option>
+      <option value="&dep=24810738949">Norma Pereira</option>
+      <option value="&dep=94892393649">Odair Cunha</option>
+      <option value="&dep=19249330391">Odorico Monteiro</option>
+      <option value="&dep=66514010253">Olival Marques</option>
+      <option value="&dep=21025932072">Onyx Lorenzoni</option>
+      <option value="&dep=56524455568">Orlando Silva</option>
+      <option value="&dep=27848280187">Osires Damaso</option>
+      <option value="&dep=1773852949">Osmar Serraglio</option>
+      <option value="&dep=19971478072">Osmar Terra</option>
+      <option value="&dep=39806464753">Ossesio Silva</option>
+      <option value="&dep=20163452504">Otavio Leite</option>
+      <option value="&dep=7217877709">Otoni de Paula</option>
+      <option value="&dep=63445557268">Ottaci Nascimento</option>
+      <option value="&dep=67871224549">Otto Alencar Filho</option>
+      <option value="&dep=72425610600">Padre João</option>
+      <option value="&dep=23340541434">Pastor Eurico</option>
+      <option value="&dep=57088071304">Pastor Gil</option>
+      <option value="&dep=22977040544">Pastor Sargento Isidório</option>
+      <option value="&dep=69305617115">Patricia Ferraz</option>
+      <option value="&dep=17486440687">Patrus Ananias</option>
+      <option value="&dep=14433290459">Paulão</option>
+      <option value="&dep=21006768904">Paulinho da Força</option>
+      <option value="&dep=30825628172">Paulo Abi-Ackel</option>
+      <option value="&dep=28870646572">Paulo Azi</option>
+      <option value="&dep=45417202215">Paulo Bengtson</option>
+      <option value="&dep=28192122808">Paulo Eduardo Martins</option>
+      <option value="&dep=93876912849">Paulo Freire Costa</option>
+      <option value="&dep=9911967751">Paulo Ganime</option>
+      <option value="&dep=86753991620">Paulo Guedes</option>
+      <option value="&dep=6015530553">Paulo Magalhães</option>
+      <option value="&dep=42844924034">Paulo Pimenta</option>
+      <option value="&dep=3273970715">Paulo Ramos</option>
+      <option value="&dep=2441369806">Paulo Teixeira</option>
+      <option value="&dep=6812201049">Paulo Vicente Caleffi</option>
+      <option value="&dep=87850885368">Pedro Augusto Bezerra</option>
+      <option value="&dep=4547437858">Pedro Augusto Palareti</option>
+      <option value="&dep=8430005463">Pedro Cunha Lima</option>
+      <option value="&dep=51172593272">Pedro Dalua</option>
+      <option value="&dep=82994684349">Pedro Lucas Fernandes</option>
+      <option value="&dep=4328943901">Pedro Lupion</option>
+      <option value="&dep=262905701">Pedro Paulo</option>
+      <option value="&dep=47721855934">Pedro Uczai</option>
+      <option value="&dep=1055737448">Pedro Vilela</option>
+      <option value="&dep=20040954072">Pedro Westphalen</option>
+      <option value="&dep=21644063204">Perpétua Almeida</option>
+      <option value="&dep=10627817670">Pinheirinho</option>
+      <option value="&dep=18753977874">Policial Katia Sastre</option>
+      <option value="&dep=28346890087">Pompeo de Mattos</option>
+      <option value="&dep=13117532811">Pr. Marco Feliciano</option>
+      <option value="&dep=9242643149">Professor Alcides</option>
+      <option value="&dep=96311380110">Professor Israel Batista</option>
+      <option value="&dep=413473740">Professor Joziel</option>
+      <option value="&dep=2159737550">Professora Dayane Pimentel</option>
+      <option value="&dep=43196926168">Professora Dorinha Seabra Rezende</option>
+      <option value="&dep=32770553291">Professora Marcivania</option>
+      <option value="&dep=29586372120">Professora Rosa Neide</option>
+      <option value="&dep=21348464372">Rachel Marques</option>
+      <option value="&dep=5582056408">Rafael Motta</option>
+      <option value="&dep=1555195490">Rafafá</option>
+      <option value="&dep=17672538500">Raimundo Costa</option>
+      <option value="&dep=45877475487">Raul Henry</option>
+      <option value="&dep=90330862634">Reginaldo Lopes</option>
+      <option value="&dep=55194770944">Reinhold Stephanes Junior</option>
+      <option value="&dep=42105560334">Rejane Dias</option>
+      <option value="&dep=30669688800">Renata Abreu</option>
+      <option value="&dep=78826942234">Renato Queiroz</option>
+      <option value="&dep=20936079487">Renildo Calheiros</option>
+      <option value="&dep=42478979934">Ricardo Barros</option>
+      <option value="&dep=59611456700">Ricardo da Karol</option>
+      <option value="&dep=95128140997">Ricardo Guidi</option>
+      <option value="&dep=10553705873">Ricardo Izar</option>
+      <option value="&dep=34663733875">Ricardo Silva</option>
+      <option value="&dep=47329980463">Ricardo Teobaldo</option>
+      <option value="&dep=37788566349">Robério Monteiro</option>
+      <option value="&dep=2621206824">Roberto Alves</option>
+      <option value="&dep=5781727809">Roberto de Lucena</option>
+      <option value="&dep=26742283858">Rodrigo Agostinho</option>
+      <option value="&dep=3000053930">Rodrigo Coelho</option>
+      <option value="&dep=83035605653">Rodrigo de Castro</option>
+      <option value="&dep=590048783">Rodrigo Maia</option>
+      <option value="&dep=47102500653">Rogério Correia</option>
+      <option value="&dep=16513703034">Rogério Peninha Mendonça</option>
+      <option value="&dep=86979728920">Roman</option>
+      <option value="&dep=56041896772">Ronaldo Carletto</option>
+      <option value="&dep=10851776884">Rosana Valle</option>
+      <option value="&dep=82863989715">Rosangela Gomes</option>
+      <option value="&dep=93132620106">Rose Modesto</option>
+      <option value="&dep=21471037991">Rossoni</option>
+      <option value="&dep=18746420959">Rubens Bueno</option>
+      <option value="&dep=13334727149">Rubens Otoni</option>
+      <option value="&dep=441514383">Rubens Pereira Júnior</option>
+      <option value="&dep=61464686815">Rui Falcão</option>
+      <option value="&dep=1859237711">Ruy Carneiro</option>
+      <option value="&dep=39154732867">Sâmia Bomfim</option>
+      <option value="&dep=6613343846">Samuel Moreira</option>
+      <option value="&dep=49941720053">Sanderson</option>
+      <option value="&dep=62281038068">Santini</option>
+      <option value="&dep=53447468904">Sargento Fahur</option>
+      <option value="&dep=27696090925">Schiavinato</option>
+      <option value="&dep=73387789491">Sebastião Oliveira</option>
+      <option value="&dep=18635458591">Sérgio Brito</option>
+      <option value="&dep=75687658904">Sergio Souza</option>
+      <option value="&dep=33205302400">Sergio Toledo</option>
+      <option value="&dep=52549810759">Sergio Vidigal</option>
+      <option value="&dep=66256070453">Severino Pessoa</option>
+      <option value="&dep=75096102220">Shéridan</option>
+      <option value="&dep=24067857268">Sidney Leite</option>
+      <option value="&dep=13512951287">Silas Câmara</option>
+      <option value="&dep=1739396782">Silvia Cristina</option>
+      <option value="&dep=3500720439">Silvio Costa Filho</option>
+      <option value="&dep=33489874315">Simplício Araújo</option>
+      <option value="&dep=49125290797">Soraya Santos</option>
+      <option value="&dep=95188100606">Sóstenes Cavalcante</option>
+      <option value="&dep=1608657">Stefano Aguiar</option>
+      <option value="&dep=41864883634">Subtenente Gonzaga</option>
+      <option value="&dep=38848319840">Tabata Amaral</option>
+      <option value="&dep=35284420420">Tadeu Alencar</option>
+      <option value="&dep=11138295752">Talíria Petrone</option>
+      <option value="&dep=81336357720">Ted Conti</option>
+      <option value="&dep=20969430604">Tereza Cristina</option>
+      <option value="&dep=13626167453">Tereza Nelma</option>
+      <option value="&dep=66858933549">Tia Eron</option>
+      <option value="&dep=1657051161">Tiago Dimas</option>
+      <option value="&dep=7529510681">Tiago Mitraud</option>
+      <option value="&dep=44833881349">Tiririca</option>
+      <option value="&dep=71762477572">Tito</option>
+      <option value="&dep=18591035968">Toninho Wandscheer</option>
+      <option value="&dep=90894677349">Totonho Lopes</option>
+      <option value="&dep=6016298417">Túlio Gadêlha</option>
+      <option value="&dep=3746803101">Uldurico Junior</option>
+      <option value="&dep=56571739291">Vaidon Oliveira</option>
+      <option value="&dep=51752840534">Valdevan Noventa</option>
+      <option value="&dep=2333314842">Valmir Assunção</option>
+      <option value="&dep=34358099149">Valtenir Pereira</option>
+      <option value="&dep=32247753191">Vander Loubet</option>
+      <option value="&dep=19044690868">Vanderlei Macris</option>
+      <option value="&dep=19863098">Vavá Martins</option>
+      <option value="&dep=33286957968">Vermelho</option>
+      <option value="&dep=12995398404">Vicentinho</option>
+      <option value="&dep=99898659149">Vicentinho Júnior</option>
+      <option value="&dep=36137847934">Vilson da Fetaemg</option>
+      <option value="&dep=82286019720">Vinicius Carvalho</option>
+      <option value="&dep=91804736791">Vinicius Farah</option>
+      <option value="&dep=51004224249">Vinicius Gurgel</option>
+      <option value="&dep=34806872881">Vinicius Poit</option>
+      <option value="&dep=7063842706">Vitor Hugo</option>
+      <option value="&dep=168780860">Vitor Lippi</option>
+      <option value="&dep=1141871262">Vivi Reis</option>
+      <option value="&dep=10866655549">Waldenor Pereira</option>
+      <option value="&dep=3200380411">Walter Alves</option>
+      <option value="&dep=84719850634">Weliton Prado</option>
+      <option value="&dep=26254166453">Wellington Roberto</option>
+      <option value="&dep=16159977415">Wilson Santiago</option>
+      <option value="&dep=74989910478">Wolney Queiroz</option>
+      <option value="&dep=36847950706">Zé Augusto Nalin</option>
+      <option value="&dep=10009728368">Zé Carlos</option>
+      <option value="&dep=38247186500">Zé Neto</option>
+      <option value="&dep=43422780653">Zé Silva</option>
+      <option value="&dep=7284044608">Zé Vitor</option>
+      <option value="&dep=3098871946">Zeca Dirceu</option>
+    </select>
+
+    <input class="btn btn-primary" type="button" value="Atualizar gráfico" onclick="updateGraph()">
+    <p>Após clicar em atualizar, aguarde ~15 segundos pro gráfico ser gerado</p>
+
+    <div id="mynetwork" class="center"></div>
+    <script type="text/javascript" src="js/graphvis.js"></script>
+    </br>
+    <!--Section: FAQ-->
+    <section>
+      <h3 class="text-center mb-4 pb-2 text-primary fw-bold">Perguntas frequentes</h3>
+      <p class="text-center mb-5">
+      </p>
+
+      <div class="row">
+        <div class="col-md-6 col-lg-4 mb-4">
+          <h6 class="mb-3 text-primary"><i class="far fa-paper-plane text-primary pe-2"></i>1. Qual é a fonte dos dados?
+          </h6>
+          <p>Arquivos disponibilizados pelo site <strong><u><a href="https://dadosabertos.camara.leg.br/swagger/api.html#staticfile">Dados Abertos</a></u></strong> mantido pelo governo.
+          </p>
+        </div>
+
+        <div class="col-md-6 col-lg-4 mb-4">
+          <h6 class="mb-3 text-primary"><i class="fas fa-pen-alt text-primary pe-2"></i>2. Como são definidas as linhas?E as entidades?</h6>
+          <p>Cada linha do gráfico representa um relacionamento entre um CPF e um CNPJ dos arquivos .CSV da categoria<strong> "Despesas pela Cota para Exercício da Atividade Parlamentar"</strong>, disponibilizado no <strong><u><a href="https://dadosabertos.camara.leg.br/swagger/api.html#staticfile">Dados Abertos</a></u></strong>. A entidade central corresponde ao CPF e as adjacentes aos CNPJs.
+          </p>
+        </div>
+
+        <div class="col-md-6 col-lg-4 mb-4">
+          <h6 class="mb-3 text-primary"><i class="fas fa-user text-primary pe-2"></i>3. O valor (R$) da despesa é levado em conta na construção do gráfico?
+          </h6>
+          <p>Não, as linhas se referem a quantidade de despesas CPF vs CNPJ e não ao valor das despesas.</p>
+        </div>
+
+        <div class="col-md-6 col-lg-4 mb-4">
+          <h6 class="mb-3 text-primary"><i class="fas fa-rocket text-primary pe-2"></i>4. Por que não posso selecionar as despesas de todos os anos para um candidato?
+          </h6>
+          <p>Juntar todos os anos em um só gráfico causa lentidão no carregamento do gráfico, por isso preferi separar por ano.
+          </p>
+        </div>
+
+        <div class="col-md-6 col-lg-4 mb-4">
+          <h6 class="mb-3 text-primary"><i class="fas fa-home text-primary pe-2"></i>5. No site Dados Abertos tem despesas desde 2008, porque só consigo filtrar a partir de 2019?
+          </h6>
+          <p>Quando tiver um tempo vou atualizar a interface, mas você pode alterar o endereço (URL) pelo CPF e ano em que o candidato esteve eleito, por exemplo, Jair Bolsonaro era deputado federal em 2017, altere a URL para <a href='./index.html?&dep=45317828791&ano=2017'>/index.html?&dep=45317828791&ano=2017</a></p>
+        </div>
+
+        <div class="col-md-6 col-lg-4 mb-4">
+          <h6 class="mb-3 text-primary"><i class="fas fa-book-open text-primary pe-2"></i>7. Por que algumas entidades estão sem relacionmento(soltas no gráfico)?
+          </h6>
+          <p>Por algum motivo, algumas empresas no arquivo fonte estão com o CNPJ vazio, por isso elas estão soltas no gráfico. Acesse o arquivo .csv no <a href='https://www.libreoffice.org/'>LibreOffice</a>/Excel para verificar mais detalhes sobre essas entidates.
+          </p>
+        </div>
+
+        <div class="col-md-6 col-lg-4 mb-4">
+          <h6 class="mb-3 text-primary"><i class="fas fa-book-open text-primary pe-2"></i>8. Por que existem entidades com nomes parecidos?
+          </h6>
+          <p>Porque é assim que está no arquivo .csv 🤣</p>
+        </div>
+
+        <div class="col-md-6 col-lg-4 mb-4">
+          <h6 class="mb-3 text-primary"><i class="fas fa-book-open text-primary pe-2"></i>6. Como faço pra explorar mais os dados do site Dados Abertos?</h6>
+          <p>Para acessar os dados brutos utilizados para gerar os gráficos, é só baixar os arquivos .CSV referenciado na pergunta 2 e abrir no <a href='https://www.libreoffice.org/'>LibreOffice</a>/Excel. No arquivo é possível verificar valores das notas, datas, link para o arquivo da nota fiscal completa, etc. Para analisar outros dados, pode começar por esta outra página <a href="https://www.camara.leg.br/transparencia/gastos-parlamentares">www.camara.leg.br/transparencia/gastos-parlamentares</a>
+          </p>
+        </div>
+
+        <div class="col-md-6 col-lg-4 mb-4">
+          <h6 class="mb-3 text-primary"><i class="fas fa-book-open text-primary pe-2"></i>9. Por que este site foi criado?
+          </h6>
+          <p>Criei como hobby este final de semana pra explorar algumas tecnologias como Jupyter notebooks e banco de dados de grafos (https://github.com/visjs/vis-network), etc... 🤓
+          </p>
+        </div>
+
+      </div>
+    </section>
+    <!--Section: FAQ-->
+  </div>
+</body>
+
+</html>
